@@ -1,0 +1,88 @@
+{
+  "name": "Express_Boilerplate",
+  "author": "<CAO Quang Binh> caoquangbinh@gmail.com",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon src/index.js --exec \"LOCAL_MODE=true node -r dotenv/config -r babel-register\"",
+    "start": "nodemon src/index.js --exec \"NODE_ENV=production node -r dotenv/config -r babel-register\"",
+    "lint": "eslint --ext .js src",
+    "precommit": "npm run lint",
+    "precommit-msg": "echo 'Pre-commit: checking for coding conventions...' && exit 0",
+    "apidoc": "apidoc -i src/packages/ -o apidoc/"
+  },
+  "pre-commit": [
+    "precommit-msg",
+    "precommit"
+  ],
+  "bin": {
+    "genModel": "./commands/model.js"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ]
+  },
+  "nodemonConfig": {
+    "verbose": false,
+    "ignore": [
+      "node_modules",
+      "src/files",
+      "logs"
+    ],
+    "ext": "js"
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "cluster": "^0.7.7",
+    "compression": "^1.7.2",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
+    "cron": "^1.3.0",
+    "debug": "~2.6.9",
+    "diacritics": "^1.3.0",
+    "dotenv": "^5.0.1",
+    "express": "~4.16.0",
+    "express-validation": "^1.0.2",
+    "farmhash": "^2.0.5",
+    "helmet": "^3.12.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "joi": "^13.7.0",
+    "jsonwebtoken": "^8.2.0",
+    "lodash": "^4.17.11",
+    "method-override": "^2.3.10",
+    "module-alias": "^2.0.6",
+    "moment": "^2.21.0",
+    "mongoose": "^5.5.11",
+    "morgan": "~1.9.0",
+    "nodemailer": "^4.6.3",
+    "socket.io": "^2.0.4",
+    "socket.io-redis": "^5.2.0",
+    "winston": "^2.4.4",
+    "winston-loggly-bulk": "^2.0.2",
+    "yarn": "^1.19.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.19.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "pre-commit": "^1.2.2"
+  }
+}
