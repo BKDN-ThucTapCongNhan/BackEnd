@@ -1,5 +1,7 @@
 import validate from 'express-validation'
-import user from './user/validator'
+import level from './level/validator'
+import languageProgram from './language-program/validator'
+import admin from './admin/validator'
 
 function parse(object) {
   const data = {}
@@ -10,5 +12,8 @@ function parse(object) {
 }
 
 export default {
-  user: parse(user)
+  level: parse(level),
+  languageProgram: parse(languageProgram),
+  admin: parse(admin),
+
 }

@@ -2,7 +2,13 @@ const commonCode = {
   serverError: 1000,
   apiNotFound: 1001,
   tokenVerifyFailed: 1002,
-  dataAlreadyExisted: 1003
+  dataAlreadyExisted: 1003,
+  serverErrorCode: 500,
+  unAuthorizedCode: 401,
+  notFound: 404,
+  badRequest: 400,
+  duplicate: 409,
+  forbidden: 403
 }
 
 const userCode = {

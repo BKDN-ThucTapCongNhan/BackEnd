@@ -24,6 +24,8 @@ app.use(compress())
 app.use(methodOverride())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'uploads')))
+
 app.use(helmet())
 
 multiCores(app, mediator)

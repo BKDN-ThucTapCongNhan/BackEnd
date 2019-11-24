@@ -1,6 +1,6 @@
 import validate from 'express-validation'
 
-import user from '../packages/user/validator'
+import user from '../packages/account/validator'
 import session from '../packages/session/validator'
 
 function parse(object) {

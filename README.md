@@ -33,7 +33,7 @@ validation.js
 controller.js
 service.js
 repository.js
-model.js
+modelDocument.js
 static.js
 config.js
 ```
