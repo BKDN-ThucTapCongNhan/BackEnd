@@ -19,6 +19,10 @@ const AdminSchema = new Schema({
   deletedAt: {
     type: Date,
     default: null
+  },
+  role: {
+    type: Number,
+    default: configs.role.Admin
   }
 }, {
   versionKey: false,

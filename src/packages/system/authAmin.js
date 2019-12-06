@@ -1,5 +1,6 @@
 import express from 'express'
 import repoAdmin from '../../packages/admin/repository'
+import configsAccount from '../../packages/account/config'
 import { verifyToken } from '../../utils/verify-token'
 import { UN_AUTHORIZED_CODE } from './authorizator'
 import responseBuilder from '../../utils/response-builder'
@@ -22,7 +23,8 @@ router.use((req, res, next) => {
   }
   const tokenAdmin = req.headers.token_admin;
   if (tokenAdmin) {
-    req.admin = verifyToken(tokenAdmin, repoAdmin, req, res)
+    const role = configsAccount.role.Admin;
+    req.admin = verifyToken(tokenAdmin, repoAdmin, role, req, res);
     next()
   } else {
     return res.status(UN_AUTHORIZED_CODE).jsonp(responseBuilder.build(false, {}, errorUtil.parseError(commonLocale.noToken)))

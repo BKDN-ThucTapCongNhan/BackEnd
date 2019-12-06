@@ -22,7 +22,7 @@ const app = {
   },
 
   format: {
-    date: 'DD/MM/YYYY, HH:mm'
+    date: 'YYYY-MM-DD'
   },
 
   refreshTokenLifeTime: '30d'

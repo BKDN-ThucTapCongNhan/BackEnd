@@ -1,38 +1,23 @@
-// import express from 'express'
-// import UserCtrl from './controller'
-// import preQuery from '../../utils/pre-query'
-// import auth from '../system/authorizator'
-// import paramValidator from '../validator'
-// import auth from '../auth'
-//
-// const router = express.Router()
-//
-// /**
-//  * @apiDefine Header
-//  * @apiHeader {String} Authorization Access token
-//  */
-//
-// /**
-//  * @api {post} /register Register
-//  * @apiGroup Users
-//  *
-//  * @apiName Register
-//  *
-//  * @apiParam {String} email
-//  * @apiParam {String} password must be in md5 format
-//  */
-// router.post('/register', paramValidator.user.validateRegister, UserCtrl.register)
-//
-// /**
-//  * @api {get} /me Show user profile
-//  * @apiUse Header
-//  * @apiGroup Users
-//  *
-//  * @apiName Me
-//  *
-//  */
-// router.get('/me', auth, auth.requireLogin, UserCtrl.show)
-//
-// router.param('id', auth, preQuery.user)
-//
-// export default router
+import express from 'express'
+import paramValidator from '../validator'
+import ClassCtrl from './controller'
+
+const router = express.Router()
+/**
+ * @api {patch} /admin/class/ Register account
+ * @apiHeader {String} [Authorization] Access token, if admin logged in then call with token, else call none token
+ * @apiVersion 1.0.0
+ * @apiGroup Class
+ * @apiName Register class
+ *
+ * @apiParam {String} name
+ * @apiParam {String} description
+ * @apiParam {String} courseID
+ * @apiParam {String} teacherID
+ * @apiParam {String} numberMember
+ * @apiParam {String} dateBegin
+ * @apiParam {String} dateEnd
+ */
+router.post('/', paramValidator.classCourse.validateRegister, ClassCtrl.create);
+
+export default router

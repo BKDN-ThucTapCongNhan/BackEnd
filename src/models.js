@@ -5,9 +5,8 @@ import Level from './packages/level/model'
 import LanguageProgram from './packages/language-program/model'
 import DocumentDetail from './packages/document/modelDocumentDetail'
 import Document from './packages/document/modelDocument'
-// import Class from './packages/class/model'
-// import Course from './packages/course/model'
-// import Role from './packages/role/model'
+import Class from './packages/class/model'
+import Course from './packages/course/model'
 
 export {
   Account,
@@ -16,8 +15,7 @@ export {
   Level,
   LanguageProgram,
   DocumentDetail,
-  Document
-  // Class,
-  // Course,
-  // Role
+  Document,
+  Class,
+  Course
 }

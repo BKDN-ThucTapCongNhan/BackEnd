@@ -23,6 +23,7 @@ const queryBuilderGetList = (options) => {
         _id: '$_id',
         pathFile: 1,
         nameFile: 1,
+        'document._id': 1,
         'document.name': 1,
       }
     },

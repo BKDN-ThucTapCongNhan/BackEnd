@@ -15,8 +15,8 @@ const CourseSchema = new Schema({
     type: ObjectId,
     required: true
   },
-  periodID: {
-    type: ObjectId,
+  period: {
+    type: Number,
     required: true
   },
   status: {
@@ -28,8 +28,8 @@ const CourseSchema = new Schema({
     type: Number,
     required: true
   },
-  lessons: {
-    type: String,
+  lessonID: {
+    type: ObjectId,
     required: true
   },
   deletedAt: {

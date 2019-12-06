@@ -1,9 +1,9 @@
-import { User } from '../../models'
+import { Class } from '../../models'
 
-async function createUser(body) {
-  return User.create(body)
+async function registerClass(body) {
+  return Class.create(body)
 }
 
 export default {
-  createUser
+  registerClass
 }

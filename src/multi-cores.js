@@ -1,10 +1,15 @@
+import socketIO from 'socket.io'
 import http from 'http'
 import env from './utils/env'
 import { mongoose } from './utils/mongoose'
+import initSocket from './socketIO/initConnection';
 
 export default (app, mediator) => {
   validatePort()
   const server = http.createServer(app).listen(env.PORT);
+  const io = socketIO(server);
+  initSocket.initConnection(io);
+  app.io = io;
   setImmediate(() => {
     mediator.emit('boot.ready')
   })

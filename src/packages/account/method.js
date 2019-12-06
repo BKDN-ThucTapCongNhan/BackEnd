@@ -1,7 +1,8 @@
 import bcrypt from 'bcrypt'
+import { pick } from 'lodash'
 
 function authenticate(plainText) {
-  return bcrypt.compareSync(plainText, this.hashPassword);
+  return bcrypt.compareSync(plainText, this.hashPassWord);
 }
 
 function hashPasswordUser(password) {
@@ -10,7 +11,12 @@ function hashPasswordUser(password) {
   return bcrypt.hashSync(password, salt);
 }
 
+function genTokenData() {
+  return pick(this, ['_id', 'email', 'role']);
+}
+
 export default {
   authenticate,
   hashPasswordUser,
+  genTokenData
 }

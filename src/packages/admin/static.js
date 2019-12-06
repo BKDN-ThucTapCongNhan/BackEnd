@@ -1,12 +1,13 @@
 import lodash from 'lodash'
 
-async function commonAdminData(accountDetail) {
+async function commonAccountData(accountDetail) {
   return lodash.pick(accountDetail, [
     '_id',
-    'email'
+    'email',
+    'role'
   ])
 }
 
 export default {
-  commonAdminData
+  commonAccountData
 }

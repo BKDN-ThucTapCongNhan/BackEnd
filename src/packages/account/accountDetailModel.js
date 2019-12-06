@@ -22,13 +22,13 @@ const AccountDetailSchema = new Schema({
   },
   classID: {
     type: ObjectId,
-    required: true
+    default: null
   },
   birthday: {
     type: Date,
     required: true
   },
-  cmnd: {
+  CMND: {
     type: String,
     required: true
   },

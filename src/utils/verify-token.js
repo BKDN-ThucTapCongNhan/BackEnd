@@ -5,7 +5,7 @@ import responseBuilder from './response-builder'
 import errorUtil from './error'
 import { commonLocale } from '../locales'
 
-const verifyToken = async (token, repository, req, res) => {
+const verifyToken = async (token, repository, role, req, res) => {
   verify(token.split(' ')[1], config.secret, async (error, decoded) => {
     if (error) {
       return res.status(UN_AUTHORIZED_CODE).jsonp(responseBuilder.build(false, {}, errorUtil.parseError(commonLocale.tokenVerifyFailed)))
@@ -19,7 +19,7 @@ const verifyToken = async (token, repository, req, res) => {
     const result = await repository.findById({
       _id: decoded._id
     });
-    if (!result) {
+    if (!result && result.role !== role) {
       return res.status(UN_AUTHORIZED_CODE).jsonp(responseBuilder.build(false, {}, errorUtil.parseError(commonLocale.noToken)))
     }
     return result;

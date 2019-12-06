@@ -5,9 +5,8 @@ const gender = {
 
 const role = {
   Admin: 0,
-  Manager: 1,
-  Teacher: 2,
-  Student: 3
+  Teacher: 1,
+  Student: 2
 }
 
 const roles = [role.Admin, role.Manager, role.Teacher, role.Student];
